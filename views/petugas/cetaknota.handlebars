@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>SINOCHI | Sistem Informasi Nota Sochi</title>
+
+  <script>
+    window.print();
+  </script>
+  
+  <script type="text/javascript" src="/js/jquery.js"></script>
+	<script type="text/javascript" src="/js/jquery.dataTables.js"></script>
+	<link rel="stylesheet" type="text/css" href="/css/bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="/css/jquery.dataTables.css">
+	<link rel="stylesheet" type="text/css" href="/css/dataTables.bootstrap.css">
+
+  <link href="/images/favicon.png" rel="icon" type="image/x-icon" />
+  <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+  <!-- Bootstrap core CSS -->
+  <link href="/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Custom styles for this template -->
+  <link href="/css/simple-sidebar.css" rel="stylesheet">
+  {{!-- <link href="/css/style.css" rel="stylesheet"> --}}
+  <style>
+    hr.new4 {
+      border: 1px solid black;
+    }
+
+    hr.new1 {
+      border-top: 1px solid black;
+    }
+  </style>
+
+</head>
+
+<body>
+
+  <div class="d-flex" id="wrapper">
+      {{!-- Nota Start --}}
+      <table align="center" border="0" width="100%">
+        <tr>
+          <td>
+            <table border="0" cellpadding="10" width="100%">
+              <tr>
+                <td><img src="/images/logonota.png" width="250" height="70"></td>
+                <td><font size="3">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<u><strong>NOTA PEMBELIAN</strong></u>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font></td>
+                <td>
+                  <table border="0" width="100%" cellpadding="0">
+                    <tr>
+                      <td><font size="2"><strong>Kepada Yth</strong></font></td>
+                      <td><font size="2">:</font></td>
+                      <td><font size="2">&nbsp;{{data.[0].nama}}</font></td>
+                    </tr>
+                    <tr>
+                      <td><font size="2"><strong>Alamat</strong></font></td>
+                      <td><font size="2">:</font></td>
+                      <td><font size="2">&nbsp;{{data.[0].alamat}}</font></td>
+                    </tr>
+                    <tr>
+                      <td><font size="2"><strong>No. Nota</strong></font></td>
+                      <td><font size="2">:</font></td>
+                      <td><font size="2">&nbsp;{{data.[0].no_nota}}</font></td>
+                    </tr>
+                    <tr>
+                      <td><font size="2"><strong>Tanggal</strong></font></td>
+                      <td><font size="2">:</font></td>
+                      <td><font size="2">&nbsp;Cilacap, {{formatTime data.[0].tanggal "LL"}}</font></td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>            
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <table border="0" width="100%" rules="rows">
+              <hr class="new4">
+              <tr align="left">
+                <th><font size="2">&nbsp;&nbsp;&nbsp;Nama Barang</font></th>
+                <th><font size="2">&nbsp;&nbsp;&nbsp;Quantity</font></th>
+                <th><font size="2">&nbsp;&nbsp;&nbsp;Harga (Rp.)</font></th>
+                <th><font size="2">&nbsp;&nbsp;&nbsp;Diskon (%)</font></th>
+                <td align="right"><font size="2">&nbsp;&nbsp;&nbsp;<strong>Jumlah (Rp)&nbsp;&nbsp;&nbsp;</strong></font></td>
+              </tr>
+              {{#each data}}
+              <tr>
+                <td align="left"><font size="2">&nbsp;&nbsp;&nbsp; {{nama_produk}}</font></td>
+                <td align="left"><font size="2">&nbsp;&nbsp;&nbsp;{{jumlah_beli}}</font></td>
+                <td align="left"><font size="2">&nbsp;&nbsp;&nbsp;{{number harga_satuan}}</font></td>
+                <td align="left"><font size="2">&nbsp;&nbsp;&nbsp; {{diskon}} %</font></td>
+                <td align="right"><font size="2">&nbsp;&nbsp;&nbsp; {{number jumlah}} &nbsp;&nbsp;&nbsp;</font></td>
+              </tr>
+              {{else}}
+                <h1>Unknown Data</h1>
+              {{/each}}
+              <tr>
+                <td colspan="3"></td>
+                <td align="right"><font size="2"><strong>Total</strong></font></td>
+                <td align="right">&nbsp;&nbsp;&nbsp;<font size="2"><strong> Rp. {{number total}}&nbsp;&nbsp;&nbsp;</strong></td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <table width="100%" border="0">
+              <tr align="center">
+                <td><font size="2"><strong>Tanda Terima</strong></font></td>
+                <td><font size="2"><strong>Hormat Kami</strong></font></td>
+              </tr>
+                <tr><td>&nbsp;</td>
+                <td>&nbsp;</td>
+              </tr>
+              <tr align="center">
+                <td><font size="2"><strong>..........</strong></font></td>
+                <td><font size="2"><strong>..........</strong></font></td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <table border="0" width="100%">
+              <tr>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+              </tr>
+              <hr class="new1">
+            </table>
+          </td>
+        </tr>
+      </table>
+      {{!-- Nota End --}}
+  </div>
+  <!-- /#wrapper -->
+
+  <!-- Bootstrap core JavaScript -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.9.0/feather.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.min.js"></script>
+    <script src="/js/dashboard.js"></script>
+    <!-- Page level plugin JavaScript-->
+    <script src="/js/jquery-slim.min.js"></script>
+    <script src="/js/bootstrap.bundle.min.js"></script>
+    <script src="/js/jquery.dataTables.js"></script>
+    <script src="/js/dataTables.bootstrap4.js"></script>
+    <script src="/js/datatables-demo.js"></script>
+    {{!-- Ajax Search --}}
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="/js/typeahead.js" type="text/javascript"></script>
+
+  <!-- Menu Toggle Script -->
+  <script>
+    $("#menu-toggle").click(function(e) {
+      e.preventDefault();
+      $("#wrapper").toggleClass("toggled");
+    });
+  </script>
+
+  <script type="text/javascript">
+    $(document).ready(function(){
+      $('.data').DataTable();
+    });
+  </script>
+
+</body>
+
+</html>
