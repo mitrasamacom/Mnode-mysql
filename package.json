@@ -1,7 +1,7 @@
 {
-  "name": "tachi",
+  "name": "mnode-mysql",
   "version": "1.0.0",
-  "description": "Nota Sochi",
+  "description": "author Abdul Aziz",
   "main": "app.js",
   "scripts": {
     "dev": "nodemon app.js"
